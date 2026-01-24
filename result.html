@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Result - Savar Model Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Extra styling for result page */
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+button {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.result-card {
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>Savar Model Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="notice.html">Notice</a>
+    <a href="result.html">Result</a>
+    <a href="https://marufmahadyarnob.github.io/sma/admin.html" target="_blank">Admin</a>
+  </nav>
+</header>
+
+<!-- Banner -->
+<div class="banner">
+  <img src="img/banner.jpg" alt="Savar Model Academy Banner">
+</div>
+
+<!-- Content -->
+<div class="container">
+  <h2>Student Result Portal</h2>
+  <p>Enter your roll number to see the result:</p>
+
+  <input type="number" id="roll" placeholder="Roll Number">
+  <button onclick="showResult()">View Result</button>
+
+  <div id="result" class="result-card"></div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Savar Model Academy. All rights reserved.
+</footer>
+
+<script>
+/* Fetch student data from localStorage (admin panel added data) */
+const students = JSON.parse(localStorage.getItem("students")) || [];
+
+function gradePoint(mark) {
+  if (mark >= 80) return [5.0, "A+"];
+  if (mark >= 70) return [4.0, "A"];
+  if (mark >= 60) return [3.5, "A-"];
+  if (mark >= 50) return [3.0, "B"];
+  if (mark >= 40) return [2.0, "C"];
+  if (mark >= 33) return [1.0, "D"];
+  return [0.0, "F"];
+}
+
+function showResult() {
+  const roll = document.getElementById("roll").value;
+  const s = students.find(st => st.roll == roll);
+  const resultDiv = document.getElementById("result");
+
+  if (!s) {
+    resultDiv.innerHTML = "<p style='color:red'>❌ Result not found</p>";
+    return;
+  }
+
+  const subjects = [
+    ["Bangla", s.bangla],
+    ["English", s.english],
+    ["Math", s.math]
+  ];
+
+  let totalGP = 0;
+  let fail = false;
+
+  let rows = subjects.map(sub => {
+    const [gp, grade] = gradePoint(sub[1]);
+    if (gp === 0) fail = true;
+    totalGP += gp;
+    return `
+      <tr>
+        <td>${sub[0]}</td>
+        <td>${sub[1]}</td>
+        <td>${grade}</td>
+        <td>${gp}</td>
+      </tr>`;
+  }).join("");
+
+  const gpa = fail ? "0.00" : (totalGP / subjects.length).toFixed(2);
+
+  resultDiv.innerHTML = `
+    <h3>Report Card</h3>
+    <p>
+      Name: <b>${s.name}</b><br>
+      Roll: ${s.roll}<br>
+      Class: ${s.class} | Section: ${s.section}
+    </p>
+
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Grade</th>
+        <th>GPA</th>
+      </tr>
+      ${rows}
+      <tr>
+        <th colspan="3">Final GPA</th>
+        <th>${gpa}</th>
+      </tr>
+    </table>
+
+    <button class="print" onclick="window.print()">Print Report</button>
+  `;
+}
+</script>
+
+</body>
+</html>
