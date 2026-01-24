@@ -1,10 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Savar Model Academy</title>
+  <meta charset="UTF-8">
+  <title>Savar Model Academy – Result</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .card {
+      max-width: 400px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: auto;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background: #0b5ed7;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Savar Model Academy</h1>
-  <p>This website is under construction.</p>
+
+<div class="card">
+  <h2>Savar Model Academy</h2>
+  <p>Enter Roll Number</p>
+
+  <input type="number" id="roll" placeholder="Roll Number">
+  <button onclick="showResult()">View Result</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  const students = [
+    {
+      roll: 101,
+      name: "Rahim",
+      bangla: 75,
+      english: 68,
+      math: 88
+    },
+    {
+      roll: 102,
+      name: "Karim",
+      bangla: 65,
+      english: 72,
+      math: 80
+    }
+  ];
+
+  function showResult() {
+    const roll = document.getElementById("roll").value;
+    const resultDiv = document.getElementById("result");
+
+    const student = students.find(s => s.roll == roll);
+
+    if (!student) {
+      resultDiv.innerHTML = "❌ Result not found";
+      return;
+    }
+
+    const total = student.bangla + student.english + student.math;
+    const avg = total / 3;
+
+    let grade = "F";
+    if (avg >= 80) grade = "A+";
+    else if (avg >= 70) grade = "A";
+    else if (avg >= 60) grade = "A-";
+    else if (avg >= 50) grade = "B";
+
+    resultDiv.innerHTML = `
+      <h3>Report Card</h3>
+      Name: ${student.name}<br>
+      Roll: ${student.roll}<br>
+      Bangla: ${student.bangla}<br>
+      English: ${student.english}<br>
+      Math: ${student.math}<br>
+      <b>Total:</b> ${total}<br>
+      <b>Grade:</b> ${grade}
+    `;
+  }
+</script>
+
 </body>
 </html>
