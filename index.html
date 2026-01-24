@@ -1,71 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Savar Model Academy – Result</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #f2f2f2;
-      padding: 20px;
-    }
-    .card {
-      max-width: 400px;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin: auto;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-    }
-    button {
-      background: #0b5ed7;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .result {
-      margin-top: 20px;
-      background: #e9ecef;
-      padding: 10px;
-      border-radius: 5px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Savar Model Academy – Result</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #eef2f7;
+  padding: 20px;
+}
+.card {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+button {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+h2, h3 {
+  text-align: center;
+}
+.print {
+  margin-top: 10px;
+  background: #198754;
+}
+</style>
+
 </head>
 <body>
 
 <div class="card">
   <h2>Savar Model Academy</h2>
-  <p>Enter Roll Number</p>
+  <p style="text-align:center">Student Result Portal</p>
 
-  <input type="number" id="roll" placeholder="Roll Number">
+  <input type="number" id="roll" placeholder="Enter Roll Number">
   <button onclick="showResult()">View Result</button>
 
-  <div class="result" id="result"></div>
+  <div id="result"></div>
 </div>
 
 <script>
-  const students = [
-    {
-      roll: 101,
-      name: "Rahim",
-      bangla: 75,
-      english: 68,
-      math: 88
-    },
-    {
-      roll: 102,
-      name: "Karim",
-      bangla: 65,
-      english: 72,
-      math: 80
-    }
+const students = [
+  {
+    roll: 101,
+    name: "Rahim",
+    class: "10",
+    section: "A",
+    bangla: 75,
+    english: 68,
+    math: 88
+  },
+  {
+    roll: 102,
+    name: "Karim",
+    class: "10",
+    section: "A",
+    bangla: 65,
+    english: 72,
+    math: 80
+  }
+];
+
+function gradePoint(mark) {
+  if (mark >= 80) return [5.0, "A+"];
+  if (mark >= 70) return [4.0, "A"];
+  if (mark >= 60) return [3.5, "A-"];
+  if (mark >= 50) return [3.0, "B"];
+  if (mark >= 40) return [2.0, "C"];
+  if (mark >= 33) return [1.0, "D"];
+  return [0.0, "F"];
+}
+
+function showResult() {
+  const roll = document.getElementById("roll").value;
+  const s = students.find(st => st.roll == roll);
+  const result = document.getElementById("result");
+
+  if (!s) {
+    result.innerHTML = "<p style='color:red'>❌ Result not found</p>";
+    return;
+  }
+
+  const subjects = [
+    ["Bangla", s.bangla],
+    ["English", s.english],
+    ["Math", s.math]
   ];
 
-  function showResult() {
+  let totalGP = 0;
+  let fail = false;
+
+  let rows = subjects.map(sub => {
+    const [gp, grade] = gradePoint(sub[1]);
+    if (gp === 0) fail = true;
+    totalGP += gp;
+    return `
+      <tr>
+        <td>${sub[0]}</td>
+        <td>${sub[1]}</td>
+        <td>${grade}</td>
+        <td>${gp}</td>
+      </tr>`;
+  }).join("");
+
+  const gpa = fail ? "0.00" : (totalGP / subjects.length).toFixed(2);
+
+  result.innerHTML = `
+    <h3>Report Card</h3>
+    <p>
+      Name: <b>${s.name}</b><br>
+      Roll: ${s.roll}<br>
+      Class: ${s.class} | Section: ${s.section}
+    </p>
+
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Grade</th>
+        <th>GPA</th>
+      </tr>
+      ${rows}
+      <tr>
+        <th colspan="3">Final GPA</th>
+        <th>${gpa}</th>
+      </tr>
+    </table>
+
+    <button class="print" onclick="window.print()">Print Report</button>
+  `;
+}
+</script>
+
+</body>
+</html>  function showResult() {
     const roll = document.getElementById("roll").value;
     const resultDiv = document.getElementById("result");
 
