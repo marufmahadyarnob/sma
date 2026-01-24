@@ -2,70 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Savar Model Academy – Result</title>
-
-<style>
-body {
-  font-family: Arial;
-  background: #eef2f7;
-  padding: 20px;
-}
-.card {
-  max-width: 500px;
-  margin: auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
-button {
-  background: #0d6efd;
-  color: #fff;
-  border: none;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-h2, h3 {
-  text-align: center;
-}
-.print {
-  margin-top: 10px;
-  background: #198754;
-}
-</style>
+<title>Savar Model Academy</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<div class="card">
-  <h2>Savar Model Academy</h2>
-  <p style="text-align:center">Student Result Portal</p>
+<!-- Header -->
+<header>
+  <h1>Savar Model Academy</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="notice.html">Notice</a>
+    <a href="index.html#result-section">Result</a>
+    <a href="https://marufmahadyarnob.github.io/sma/admin.html" target="_blank">Admin</a>
+  </nav>
+</header>
 
-  <input type="number" id="roll" placeholder="Enter Roll Number">
-  <button onclick="showResult()">View Result</button>
-
-  <div id="result"></div>
+<!-- Banner -->
+<div class="banner">
+  <img src="img/banner.jpg" alt="Savar Model Academy Banner">
 </div>
 
-<script>
-/* 🔹 DATA FROM ADMIN PANEL */
-const students = JSON.parse(localStorage.getItem("students")) || [];
+<!-- Content -->
+<div class="container">
+  <h2>Welcome to Savar Model Academy</h2>
+  <p>
+    This is the official website of Savar Model Academy. Here you can check results, view notices, and access the admin panel.
+  </p>
 
-function gradePoint(mark) {
-  if (mark >= 80) return [5.0, "A+"];
-  if (mark >= 70) return [4.0, "A"];
+  <!-- Result Section -->
+  <div id="result-section" style="margin-top:40px;">
+    <h2>Student Result</h2>
+    <p>
+      To view your result, go to <a href="index.html#result-page">Result Page</a>.
+    </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Savar Model Academy. All rights reserved.
+</footer>
+
+</body>
+</html>  if (mark >= 70) return [4.0, "A"];
   if (mark >= 60) return [3.5, "A-"];
   if (mark >= 50) return [3.0, "B"];
   if (mark >= 40) return [2.0, "C"];
