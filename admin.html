@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SMA Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+    .box {
+      max-width: 500px;
+      background: #fff;
+      padding: 20px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background: #0d6efd;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Admin Panel – Add Student</h2>
+
+  <input id="roll" placeholder="Roll">
+  <input id="name" placeholder="Name">
+  <input id="class" placeholder="Class">
+  <input id="section" placeholder="Section">
+  <input id="bangla" placeholder="Bangla Marks">
+  <input id="english" placeholder="English Marks">
+  <input id="math" placeholder="Math Marks">
+
+  <button onclick="saveStudent()">Save Student</button>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+let students = JSON.parse(localStorage.getItem("students")) || [];
+
+function saveStudent() {
+  const student = {
+    roll: document.getElementById("roll").value,
+    name: document.getElementById("name").value,
+    class: document.getElementById("class").value,
+    section: document.getElementById("section").value,
+    bangla: Number(document.getElementById("bangla").value),
+    english: Number(document.getElementById("english").value),
+    math: Number(document.getElementById("math").value)
+  };
+
+  students.push(student);
+  localStorage.setItem("students", JSON.stringify(students));
+
+  document.getElementById("msg").innerText = "✅ Student Saved Successfully";
+}
+</script>
+
+</body>
+</html>
