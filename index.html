@@ -45,8 +45,8 @@ h2, h3 {
   background: #198754;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="card">
@@ -60,26 +60,8 @@ h2, h3 {
 </div>
 
 <script>
-const students = [
-  {
-    roll: 101,
-    name: "Rahim",
-    class: "10",
-    section: "A",
-    bangla: 75,
-    english: 68,
-    math: 88
-  },
-  {
-    roll: 102,
-    name: "Karim",
-    class: "10",
-    section: "A",
-    bangla: 65,
-    english: 72,
-    math: 80
-  }
-];
+/* 🔹 DATA FROM ADMIN PANEL */
+const students = JSON.parse(localStorage.getItem("students")) || [];
 
 function gradePoint(mark) {
   if (mark >= 80) return [5.0, "A+"];
@@ -150,40 +132,6 @@ function showResult() {
     <button class="print" onclick="window.print()">Print Report</button>
   `;
 }
-</script>
-
-</body>
-</html>  function showResult() {
-    const roll = document.getElementById("roll").value;
-    const resultDiv = document.getElementById("result");
-
-    const student = students.find(s => s.roll == roll);
-
-    if (!student) {
-      resultDiv.innerHTML = "❌ Result not found";
-      return;
-    }
-
-    const total = student.bangla + student.english + student.math;
-    const avg = total / 3;
-
-    let grade = "F";
-    if (avg >= 80) grade = "A+";
-    else if (avg >= 70) grade = "A";
-    else if (avg >= 60) grade = "A-";
-    else if (avg >= 50) grade = "B";
-
-    resultDiv.innerHTML = `
-      <h3>Report Card</h3>
-      Name: ${student.name}<br>
-      Roll: ${student.roll}<br>
-      Bangla: ${student.bangla}<br>
-      English: ${student.english}<br>
-      Math: ${student.math}<br>
-      <b>Total:</b> ${total}<br>
-      <b>Grade:</b> ${grade}
-    `;
-  }
 </script>
 
 </body>
