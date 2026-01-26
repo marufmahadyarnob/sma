@@ -1,4 +1,73 @@
-/* ================= Modern Hero / General Button ================= */
+/* ================== GENERAL RESET ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ================== NAVBAR ================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: #0b3c5d;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-links a,
+.navbar .nav-links button.lang-btn {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #1d8cf8;
+}
+
+/* ================== HERO SECTION ================== */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: linear-gradient(135deg, #1d8cf8, #0b3c5d);
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero .hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.hero .hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* ================== GENERAL BUTTON ================== */
 .hero button,
 .btn {
     display: inline-flex;
@@ -19,7 +88,7 @@
     cursor: pointer;
 
     box-shadow: 0 8px 20px rgba(29,140,248,0.35);
-    transition: all 0.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
 /* Hover effect */
@@ -36,8 +105,7 @@
     transform: scale(0.96);
 }
 
-
-/* ================= Modern BN/EN Toggle Button ================= */
+/* ================== LANGUAGE TOGGLE BUTTON ================== */
 .lang-btn {
     padding: 6px 18px;
     border-radius: 20px;          /* Capsule shape */
@@ -51,7 +119,60 @@
 }
 
 .lang-btn:hover {
-    background: #1d8cf8;
+    background: linear-gradient(135deg, #1d8cf8, #0b3c5d);
     border-color: #1d8cf8;
     color: #fff;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 30px;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar .nav-links a,
+    .navbar .nav-links button.lang-btn {
+        margin: 10px 0;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero .hero-content p {
+        font-size: 18px;
+    }
+
+    .hero button {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero button {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
 }
