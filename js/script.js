@@ -1,20 +1,18 @@
-let currentSlide = 0;
-const slides = document.querySelectorAll('.banner img');
-
-function showSlide(index){
-  slides.forEach((slide,i)=>{
-    slide.classList.remove('active');
-  });
-  slides[index].classList.add('active');
+// Notice Auto Scroll
+let noticeText = document.getElementById("noticeText");
+if (noticeText) {
+    let pos = 0;
+    setInterval(() => {
+        pos--;
+        noticeText.style.transform = `translateX(${pos}px)`;
+    }, 30);
 }
 
-function nextSlide(){
-  currentSlide = (currentSlide +1) % slides.length;
-  showSlide(currentSlide);
-}
-
-// Auto change every 5 seconds
-setInterval(nextSlide,5000);
-
-// Initialize
-showSlide(currentSlide);
+// Form Submit
+document.querySelectorAll("form").forEach(form => {
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        alert("Submitted Successfully!");
+        form.reset();
+    });
+});
