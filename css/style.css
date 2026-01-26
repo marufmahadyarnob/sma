@@ -1,76 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* ================= Modern Hero / General Button ================= */
+.hero button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-html{scroll-behavior:smooth}
-body{background:#f4f7ff;color:#333;line-height:1.7}
+    background: linear-gradient(135deg, #1d8cf8, #0b3c5d);
+    color: #fff;
 
-/* NAV */
-.navbar{
-  background:#0a2a66;color:#fff;
-  padding:14px 24px;
-  display:flex;justify-content:space-between;align-items:center;
-  position:sticky;top:0;z-index:999
+    padding: 14px 38px;
+    border-radius: 50px;      /* Rounded / Pill Shape */
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(29,140,248,0.35);
+    transition: all 0.35s ease;
 }
-.logo{font-size:22px;font-weight:700}
-.nav-links a{
-  color:#fff;margin-left:16px;text-decoration:none;font-weight:600
+
+/* Hover effect */
+.hero button:hover,
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 14px 30px rgba(29,140,248,0.45);
+    background: linear-gradient(135deg, #0b3c5d, #1d8cf8);
 }
-.nav-links a:hover{color:#ffcc00}
-.lang-btn{margin-left:20px;background:#ffcc00;border:none;padding:6px 10px}
 
-/* NOTICE */
-.notice-bar{background:#ffcc00;padding:8px;font-weight:600;overflow:hidden}
-.notice-text{white-space:nowrap;animation:scroll 18s linear infinite}
-@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-
-/* HERO */
-.hero{
-  height:90vh;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-  url("https://scontent.fdac189-1.fna.fbcdn.net/v/t39.30808-6/615145754_122162279900839676_5662597231693126950_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=aXpDYBGSmUMQ7kNvwH91RLR&_nc_oc=AdlZ3BXO3GhcckiNlnO8aR_H_eqogNwMeVpVxvjLGTIBJk_1VWF7eR3ds6kAZoIH4rM&_nc_zt=23&_nc_ht=scontent.fdac189-1.fna&_nc_gid=5IQCT1X_-7WpKZTV51Fyng&oh=00_AfoTYpu8EImWFrMq2gyjCY1g3jwzR2Dbus7AjR6oPTzrgQ&oe=697CA8A0") center/cover;
-  display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
+/* Active / Click effect */
+.hero button:active,
+.btn:active {
+    transform: scale(0.96);
 }
-.hero h1{font-size:48px}
-.hero p{margin-top:10px}
-.hero button{margin-top:25px;padding:14px 38px;border:none;background:#ffcc00}
 
-/* SECTION */
-.section{padding:70px 24px;max-width:1100px;margin:auto}
-.section h2{font-size:32px;color:#0a2a66;margin-bottom:15px}
 
-/* CARDS */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;margin-top:40px}
-.card{background:#fff;padding:28px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.1);transition:.4s}
-.card:hover{transform:translateY(-8px)}
-
-/* TEACHER */
-.teacher img{width:100%;border-radius:10px;margin-bottom:10px}
-
-/* GALLERY */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.gallery img{width:100%;border-radius:12px;cursor:pointer}
-
-/* LIGHTBOX */
-#lightbox{
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center
+/* ================= Modern BN/EN Toggle Button ================= */
+.lang-btn {
+    padding: 6px 18px;
+    border-radius: 20px;          /* Capsule shape */
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-#lightbox img{max-width:90%;border-radius:12px}
 
-/* FORM */
-form{max-width:450px;background:#fff;padding:30px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
-input,textarea,select{width:100%;padding:12px;margin-top:12px}
-button{margin-top:18px;width:100%;padding:14px;background:#0a2a66;color:#fff;border:none}
-
-/* TABLE */
-table{width:100%;border-collapse:collapse;margin-top:20px}
-th,td{border:1px solid #ccc;padding:10px;text-align:center}
-
-/* FOOTER */
-footer{background:#111;color:#fff;text-align:center;padding:18px;margin-top:60px}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero h1{font-size:34px}
-  .nav-links{display:none}
+.lang-btn:hover {
+    background: #1d8cf8;
+    border-color: #1d8cf8;
+    color: #fff;
 }
