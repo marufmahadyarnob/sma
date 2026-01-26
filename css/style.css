@@ -1,82 +1,255 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
 }
 
-body {
-    background: #f5f7fa;
-    color: #333;
+body{
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.7;
 }
 
-/* NAVBAR */
-.navbar {
-    background: #0b3c5d;
-    color: #fff;
-    padding: 18px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* ================= NAVBAR ================= */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 8%;
+    background:#ffffff;
+    box-shadow:0 4px 20px rgba(0,0,0,0.06);
 }
 
-.nav-links a,
-.lang-btn {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 18px;
-    font-weight: 600;
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:#1d4ed8;
 }
 
-/* NOTICE BAR */
-.notice-bar {
-    background: #1d8cf8;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
 }
 
-/* HERO */
-.hero {
-    min-height: 90vh;
+.nav-links a{
+    text-decoration:none;
+    font-weight:500;
+    color:#333;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#1d4ed8;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.lang-btn{
+    padding:6px 14px;
+    border-radius:20px;
+    border:none;
+    background:#1d4ed8;
+    color:#fff;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* ================= NOTICE BAR ================= */
+.notice-bar{
+    background:linear-gradient(90deg,#1d4ed8,#2563eb);
+    color:#fff;
+    text-align:center;
+    padding:10px;
+    font-weight:500;
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:90vh;
     background:
-        linear-gradient(rgba(11,60,93,0.65), rgba(11,60,93,0.65)),
-        url("https://z-p3-scontent.fdac12-1.fna.fbcdn.net/v/t39.30808-6/615145754_122162279900839676_5662597231693126950_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=aXpDYBGSmUMQ7kNvwErbTER&_nc_oc=AdncN273q6qx_3Yo6ufvNLW9gI1RX7gfwuOijhk0EmncjVgQhAtAEkYvqTpi4x_KWoo&_nc_zt=23&_nc_ht=z-p3-scontent.fdac12-1.fna&_nc_gid=VfLv0oLcP2FWHhYapKsI4g&oh=00_AfqlY1Oz0zpByTcL1X34_a0TpRS7QPX6DFU9ZUEqFJvk4g&oe=697CE0E0");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
+        linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+        url('../assets/hero.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 }
 
-/* SECTIONS */
-.section {
-    padding: 70px 12%;
-    text-align: center;
+.hero-content{
+    color:#fff;
+    max-width:650px;
 }
 
-.section.light {
-    background: #fff;
+.hero h1{
+    font-size:52px;
+    font-weight:700;
 }
 
-.cards, .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 25px;
+.hero p{
+    font-size:20px;
+    margin:15px 0 30px;
+    letter-spacing:1px;
 }
 
-.card, .notice-list li {
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
+/* ================= BUTTON ================= */
+.btn{
+    display:inline-block;
+    padding:14px 36px;
+    background:linear-gradient(135deg,#1d4ed8,#2563eb);
+    color:#fff;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 8px 25px rgba(29,78,216,0.4);
+    transition:0.35s;
 }
 
-/* FOOTER */
-footer {
-    background: #0b3c5d;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 35px rgba(29,78,216,0.55);
+}
+
+/* ================= SECTION ================= */
+.section{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.section h2{
+    font-size:34px;
+    margin-bottom:18px;
+    color:#1d4ed8;
+}
+
+.section p{
+    max-width:750px;
+    margin:0 auto;
+    font-size:16px;
+    color:#444;
+}
+
+.light{
+    background:#ffffff;
+}
+
+/* ================= TEACHERS ================= */
+.cards{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    transition:0.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:14px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:6px;
+}
+
+.card p{
+    color:#555;
+}
+
+/* ================= NOTICE LIST ================= */
+.notice-list{
+    list-style:none;
+    max-width:500px;
+    margin:30px auto 0;
+    text-align:left;
+}
+
+.notice-list li{
+    background:#f1f5ff;
+    padding:14px 18px;
+    margin-bottom:12px;
+    border-left:5px solid #1d4ed8;
+    border-radius:8px;
+    font-weight:500;
+}
+
+/* ================= GALLERY ================= */
+.gallery{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:14px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* ================= CONTACT ================= */
+#contact p{
+    font-size:17px;
+    margin:10px 0;
+}
+
+#contact i{
+    color:#1d4ed8;
+    margin-right:8px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#0f172a;
+    color:#cbd5f5;
+    text-align:center;
+    padding:18px;
+    font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .hero h1{
+        font-size:36px;
+    }
+    .navbar{
+        padding:14px 6%;
+    }
 }
