@@ -39,6 +39,12 @@ body{
     cursor:pointer;
 }
 
+/* Logo Text */
+.logo{
+    font-weight: 700;   /* খুব মোটা */
+    font-size: 22px;    /* চাইলে বড়ও হবে */
+}
+
 /* NOTICE */
 .notice-bar{
     background:#da291c;
