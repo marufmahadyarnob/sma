@@ -1,52 +1,81 @@
-/* ========= NOTICE DATA ========= */
-const notices = [
-  "📢 Admission Open for 2026",
-  "🏫 New Academic Session Starts Soon",
-  "🎓 SSC Result: 100% Pass"
-];
+/* ========= NOTICE DATA (BN / EN) ========= */
+const notices = {
+  en: [
+    "📢 Admission Open for 2026",
+    "🏫 New Academic Session Starts Soon",
+    "🎓 SSC Result: 100% Pass"
+  ],
+  bn: [
+    "📢 ২০২৬ সালের ভর্তি কার্যক্রম শুরু",
+    "🏫 নতুন শিক্ষাবর্ষ শীঘ্রই শুরু",
+    "🎓 এসএসসি ফলাফল: ১০০% পাশ"
+  ]
+};
+
 const noticeText = document.querySelector(".notice-text");
-if(noticeText){
-  noticeText.innerText = notices.join(" | ");
-}
 
 /* ========= LANGUAGE TOGGLE ========= */
 let currentLang = "en";
+const langBtn = document.getElementById("langToggle");
 
-document.getElementById("langToggle").onclick = () => {
+function updateLanguage() {
+  /* text translate */
+  document.querySelectorAll("[data-bn]").forEach(el => {
+    el.innerText = el.dataset[currentLang];
+  });
+
+  /* notice update */
+  if (noticeText && notices[currentLang]) {
+    noticeText.innerText = notices[currentLang].join(" | ");
+  }
+
+  document.documentElement.lang = currentLang;
+}
+
+if (langBtn) {
+  langBtn.addEventListener("click", () => {
     currentLang = currentLang === "en" ? "bn" : "en";
+    updateLanguage();
+  });
+}
 
-    document.querySelectorAll("[data-bn]").forEach(el => {
-        el.innerText = el.dataset[currentLang];
-    });
+/* initial load */
+updateLanguage();
 
-    document.documentElement.lang = currentLang;
-};
-
-
-/* ========= LIGHTBOX ========= */
+/* ========= GALLERY LIGHTBOX ========= */
 const imgs = document.querySelectorAll(".gallery img");
 const lightbox = document.getElementById("lightbox");
 const lightImg = document.getElementById("lightbox-img");
-imgs.forEach(img=>{
-  img.onclick=()=>{
-    lightbox.style.display="flex";
-    lightImg.src=img.src;
-  }
-});
-if(lightbox){
-  lightbox.onclick=()=>lightbox.style.display="none";
+
+if (imgs.length && lightbox && lightImg) {
+  imgs.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightImg.src = img.src;
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
 }
 
-/* ========= FORM STORAGE ========= */
-document.querySelectorAll("form").forEach(f=>{
-  f.addEventListener("submit",e=>{
-    e.preventDefault();
-    let data = {};
-    [...f.elements].forEach(el=>{
-      if(el.name) data[el.name]=el.value;
+/* ========= FORM LOCAL STORAGE ========= */
+const forms = document.querySelectorAll("form");
+
+if (forms.length) {
+  forms.forEach(form => {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const data = {};
+      [...form.elements].forEach(el => {
+        if (el.name) data[el.name] = el.value;
+      });
+
+      localStorage.setItem("lastForm", JSON.stringify(data));
+      alert(currentLang === "bn" ? "ফরম জমা দেওয়া হয়েছে!" : "Form Submitted!");
+      form.reset();
     });
-    localStorage.setItem("lastForm",JSON.stringify(data));
-    alert("Form Submitted!");
-    f.reset();
   });
-});
+}
