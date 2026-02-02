@@ -10,15 +10,18 @@ if(noticeText){
 }
 
 /* ========= LANGUAGE TOGGLE ========= */
-let lang = "en";
-const content = {
-  en:{hero:"Shaping Future Leaders"},
-  bn:{hero:"আগামী প্রজন্মের নেতৃত্ব গড়ে তুলি"}
+let currentLang = "en";
+
+document.getElementById("langToggle").onclick = () => {
+    currentLang = currentLang === "en" ? "bn" : "en";
+
+    document.querySelectorAll("[data-bn]").forEach(el => {
+        el.innerText = el.dataset[currentLang];
+    });
+
+    document.documentElement.lang = currentLang;
 };
-function toggleLang(){
-  lang = lang==="en"?"bn":"en";
-  document.getElementById("heroTitle").innerText = content[lang].hero;
-}
+
 
 /* ========= LIGHTBOX ========= */
 const imgs = document.querySelectorAll(".gallery img");
