@@ -12,109 +12,110 @@
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- JS -->
+    <script defer src="js/lang.js"></script>
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ========== NAVBAR ========== -->
 <nav class="navbar">
-    <div class="logo">Maruf Mahady Arnob</div>
+    <div class="logo" data-bn="মারুফ মাহাদী আরনব স্কুল" data-en="Maruf Mahady Arnob School">
+        Maruf Mahady Arnob School
+    </div>
 
     <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="teachers.html">Teachers</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="admission.html">Admission</a>
-        <a href="contact.html">Contact</a>
-        <button class="lang-btn">BN / EN</button>
+        <a href="#" data-bn="হোম" data-en="Home">Home</a>
+        <a href="#about" data-bn="পরিচিতি" data-en="About">About</a>
+        <a href="#teachers" data-bn="শিক্ষকবৃন্দ" data-en="Teachers">Teachers</a>
+        <a href="#gallery" data-bn="গ্যালারি" data-en="Gallery">Gallery</a>
+        <a href="#admission" data-bn="ভর্তি" data-en="Admission">Admission</a>
+        <a href="#contact" data-bn="যোগাযোগ" data-en="Contact">Contact</a>
+        <button class="lang-btn" id="langToggle">BN / EN</button>
     </div>
 </nav>
 
-<!-- ================= NOTICE BAR ================= -->
-<div class="notice-bar">
+<!-- ========== NOTICE BAR ========== -->
+<div class="notice-bar" data-bn="📌 ভর্তি কার্যক্রম ২০২৬ শুরু | নতুন সেশন ১ জানুয়ারি | অভিভাবক সভা শীঘ্রই"
+     data-en="📌 Admission 2026 Open | New Session January 1 | Guardian Meeting Soon">
     📌 ভর্তি কার্যক্রম ২০২৬ শুরু | নতুন সেশন ১ জানুয়ারি | অভিভাবক সভা শীঘ্রই
 </div>
 
-<!-- ================= HERO ================= -->
+<!-- ========== HERO ========== -->
 <section class="hero">
     <div class="hero-content">
-        <h1>Shaping Future Leaders</h1>
-        <p>Knowledge • Discipline • Values</p>
-        <a href="about.html" class="btn">Explore</a>
+        <h1 data-bn="ভবিষ্যৎ নেতৃত্ব গঠনে আমরা প্রতিশ্রুতিবদ্ধ"
+            data-en="Shaping Future Leaders">
+            Shaping Future Leaders
+        </h1>
+        <p data-bn="জ্ঞান • শৃঙ্খলা • নৈতিকতা"
+           data-en="Knowledge • Discipline • Values">
+           Knowledge • Discipline • Values
+        </p>
+        <a href="#about" class="btn" data-bn="আরও জানুন" data-en="Explore">Explore</a>
     </div>
 </section>
 
-<!-- ================= MISSION ================= -->
-<section id="mission" class="section">
-    <h2>Mission & Vision</h2>
-    <p>
-        দেশ ও জাতি গঠনে চাই আলোকিত মানুষ। আলোকিত মানুষেরাই পরিপূর্ণ মানুষ।
-        এরাই পারে ব্যক্তি ও সমাজ জীবনে বড় ধরনের ভূমিকা রাখতে।
-        এই আলোকিত মানুষ গঠনের একমাত্র হাতিয়ার হল শিক্ষা।
+<!-- ========== MISSION & VISION ========== -->
+<section class="section">
+    <h2 data-bn="আমাদের লক্ষ্য ও উদ্দেশ্য" data-en="Mission & Vision">Mission & Vision</h2>
+    <p data-bn="আলোকিত মানুষ গঠনের একমাত্র হাতিয়ার হলো শিক্ষা।"
+       data-en="Education is the key to building enlightened human beings.">
+       Education is the key to building enlightened human beings.
     </p>
 </section>
 
-<!-- ================= ABOUT ================= -->
+<!-- ========== ABOUT ========== -->
 <section id="about" class="section light">
-    <h2>About Our School</h2>
-    <p>
-        দেশ ও জাতি গঠনে চাই আলোকিত মানুষ। আলোকিত মানুষেরাই পরিপূর্ণ মানুষ।
-        এরাই পারে ব্যক্তি ও সমাজ জীবনে বড় ধরনের ভূমিকা রাখতে।
-        পারে দেশ ও জাতিকে উন্নতির পথে এগিয়ে নিতে।
+    <h2 data-bn="আমাদের সম্পর্কে" data-en="About Our School">About Our School</h2>
+    <p data-bn="আমরা মানসম্মত শিক্ষা ও নৈতিকতা গঠনে বিশ্বাসী।"
+       data-en="We believe in quality education and moral development.">
+       We believe in quality education and moral development.
     </p>
 </section>
 
-<!-- ================= TEACHERS ================= -->
+<!-- ========== TEACHERS ========== -->
 <section id="teachers" class="section">
-    <h2>Our Teachers</h2>
+    <h2 data-bn="আমাদের শিক্ষকবৃন্দ" data-en="Our Teachers">Our Teachers</h2>
     <div class="cards">
         <div class="card">
-            <img src="assets/teacher1.jpg" alt="Senior Teacher">
-            <h3>Senior Teacher</h3>
-            <p>10+ Years Experience</p>
+            <img src="assets/teacher1.jpg" alt="">
+            <h3 data-bn="সিনিয়র শিক্ষক" data-en="Senior Teacher">Senior Teacher</h3>
+            <p data-bn="১০+ বছরের অভিজ্ঞতা" data-en="10+ Years Experience">10+ Years Experience</p>
         </div>
         <div class="card">
-            <img src="assets/teacher2.jpg" alt="Assistant Teacher">
-            <h3>Assistant Teacher</h3>
-            <p>Modern Teaching Method</p>
+            <img src="assets/teacher2.jpg" alt="">
+            <h3 data-bn="সহকারী শিক্ষক" data-en="Assistant Teacher">Assistant Teacher</h3>
+            <p data-bn="আধুনিক পাঠদান পদ্ধতি" data-en="Modern Teaching Method">Modern Teaching Method</p>
         </div>
     </div>
 </section>
 
-<!-- ================= NOTICE BOARD ================= -->
-<section id="notice" class="section light">
-    <h2>Notice Board</h2>
-    <ul class="notice-list">
-        <li>📌 ভর্তি কার্যক্রম ২০২৬ শুরু</li>
-        <li>📌 নতুন সেশন ১ জানুয়ারি</li>
-        <li>📌 অভিভাবক সভা শীঘ্রই</li>
-    </ul>
+<!-- ========== ADMISSION ========== -->
+<section id="admission" class="section light">
+    <h2 data-bn="ভর্তি তথ্য" data-en="Admission Information">Admission Information</h2>
+    <p data-bn="ভর্তি সংক্রান্ত তথ্য অফিস থেকে সংগ্রহ করুন।"
+       data-en="Collect admission details from the school office.">
+       Collect admission details from the school office.
+    </p>
 </section>
 
-<!-- ================= ADMISSION ================= -->
-<section id="admission" class="section">
-    <h2>Admission Information</h2>
-    <p>ভর্তি ফরম সংগ্রহ, নিয়মাবলী ও প্রয়োজনীয় কাগজপত্র অফিস থেকে পাওয়া যাবে।</p>
-    <a href="admission.html" class="btn">View Details</a>
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="section light">
-    <h2>Gallery</h2>
+<!-- ========== GALLERY ========== -->
+<section id="gallery" class="section">
+    <h2 data-bn="ছবি গ্যালারি" data-en="Gallery">Gallery</h2>
     <div class="gallery">
-        <img src="assets/gallery1.jpg" alt="">
-        <img src="assets/gallery2.jpg" alt="">
+        <img src="assets/gallery1.jpg">
+        <img src="assets/gallery2.jpg">
     </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <p><i class="fa fa-phone"></i> 01777205950, 09638215950</p>
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="section light">
+    <h2 data-bn="যোগাযোগ করুন" data-en="Contact Us">Contact Us</h2>
+    <p><i class="fa fa-phone"></i> 01777205950</p>
     <p><i class="fa fa-envelope"></i> marufmahadyarnob@gmail.com</p>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer>
     © 2026 Maruf Mahady Arnob School
 </footer>
