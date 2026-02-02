@@ -86,7 +86,7 @@ body{
     height:90vh;
     background:
         linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-        url('https://scontent.fdac189-1.fna.fbcdn.net/v/t39.30808-6/615145754_122162279900839676_5662597231693126950_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=aXpDYBGSmUMQ7kNvwH91RLR&_nc_oc=AdlZ3BXO3GhcckiNlnO8aR_H_eqogNwMeVpVxvjLGTIBJk_1VWF7eR3ds6kAZoIH4rM&_nc_zt=23&_nc_ht=scontent.fdac189-1.fna&_nc_gid=5IQCT1X_-7WpKZTV51Fyng&oh=00_AfoTYpu8EImWFrMq2gyjCY1g3jwzR2Dbus7AjR6oPTzrgQ&oe=697CA8A0') center/cover no-repeat;
+        url('images/banner.jpg');
     display:flex;
     align-items:center;
     justify-content:center;
