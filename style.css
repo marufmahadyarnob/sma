@@ -325,3 +325,20 @@ footer{
   border-radius:15px;
   box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
+
+@media(max-width:600px){
+  .menu a{
+    color:#ffffff;           /* dark green, clearly visible on white */
+    background:#044116;      /* subtle background, optional */
+    padding:10px 15px;       /* clickable area বড় করা */
+    border-radius:6px;        /* rounded feel */
+    margin-bottom:1px;        /* spacing between options */
+    display:block;            /* full width clickable */
+    text-align:center;
+    transition:.3s;
+  }
+  .menu a:hover{
+    background:#10b981;
+    color:rgb(255, 255, 255);
+  }
+}
