@@ -1,2 +1,2 @@
-# sma
-Demo Website of Abdur Rahman
+# Savar Model Academy
+Demo Website of Savar Model Academy
